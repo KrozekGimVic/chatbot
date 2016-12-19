@@ -1,0 +1,4 @@
+beautifulsoup4==4.5.1
+-e git+https://github.com/MKolman/fbchat.git@f0d785f750ed780e5c3d238a705b2355152c983d#egg=fbchat
+lxml==3.7.0
+requests==2.12.4
