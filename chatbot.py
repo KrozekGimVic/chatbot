@@ -1,5 +1,6 @@
-import fbchat
+import sys
 from getpass import getpass
+import fbchat
 import mods
 
 
@@ -48,7 +49,11 @@ class VicBot(fbchat.Client):
 
 
 if __name__ == "__main__":
-    client = VicBot(input("Username: "), getpass(), debug=False)
+    if len(sys.argv) >=3 :
+        username, password = sys.argv[1:4]
+    else:
+        username, password = input("Username: "), getpass()
+    client = VicBot(username, password, debug=False)
     client.add_module(mods.MarcoPolo())
     client.add_module(mods.Echo())
     print("Listening...")
