@@ -8,6 +8,10 @@ class VicBot(fbchat.Client):
     """ Hi, I am a chatbot,  a modular bot made for Facebook messenger. """
 
     def __init__(self, email, password, debug=True, user_agent=None):
+        if user_agent is None:
+            user_agent = \
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" + \
+                "(KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36"
         fbchat.Client.__init__(self, email, password, debug, user_agent)
         self.modules = []
 
