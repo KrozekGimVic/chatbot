@@ -2,7 +2,7 @@ import sys
 from getpass import getpass
 import fbchat
 import mods
-
+sys.stdout.flush()
 
 # subclass fbchat.Client and override required methods
 class VicBot(fbchat.Client):
@@ -36,6 +36,7 @@ class VicBot(fbchat.Client):
             thread_id = thread_id["otherUserFbId"]
 
         print(message)
+        sys.stdout.flush()
         if message.lower() == "help":
             response = [self.__doc__] + [mod.__doc__ for mod in self.modules]
             self.send(thread_id, "\n".join(response), message_type=message_type)
