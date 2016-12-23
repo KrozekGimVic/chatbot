@@ -55,6 +55,7 @@ if __name__ == "__main__":
     else:
         username, password = input("Username: "), getpass()
     client = VicBot(username, password, debug=False)
+    client.add_module(mods.Stats())
     client.add_module(mods.MarcoPolo())
     client.add_module(mods.Echo())
     print("Listening...")
