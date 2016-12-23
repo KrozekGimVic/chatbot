@@ -7,6 +7,23 @@ class SubModule(object):
         pass
 
 
+class Stats(SubModule):
+    """ Stats module:
+    I count all the messages. Type
+    'stats' to get the total number
+    of messages I've seen since my
+    last restart. """
+
+    def __init__(self):
+        self.total_seen = 0
+
+    def parse_message(self, message, *args, **kwargs):
+        self.total_seen += 1
+        if message.lower() == "stats":
+            return "In total I have seen {} ".format(self.total_seen) + \
+                   "messages since my last restart"
+
+
 class MarcoPolo(SubModule):
     """ Marco-Polo module:
     If you type a message ending with 'Marco' I will type 'Polo'. """
