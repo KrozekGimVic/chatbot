@@ -26,7 +26,9 @@ class Stats(SubModule):
 
 class MarcoPolo(SubModule):
     """ Marco-Polo module:
-    If you type a message ending with 'Marco' I will type 'Polo'. """
+    If you type a message ending
+    with 'Marco' I will type
+    'Polo'. """
 
     def parse_message(self, message, author_id, owner_id, thread_id, metadata):
         if message.lower().endswith("marco"):
@@ -35,8 +37,10 @@ class MarcoPolo(SubModule):
 
 class Echo(SubModule):
     """ Echo Module:
-    By typing 'echo on' I will start repeating everything you say.
-    You can end this by typing 'echo off' """
+    By typing 'echo on' I will start
+    repeating everything you say.
+    You can end this by typing
+    'echo off' """
 
     def __init__(self):
         self.threads = set()
