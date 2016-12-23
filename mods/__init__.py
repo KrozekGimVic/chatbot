@@ -46,12 +46,14 @@ class Echo(SubModule):
         self.threads = set()
 
     def parse_message(self, message, author_id, owner_id, thread_id, metadata):
-        if message.lower() == "echo on":
+        if thread_id not in self.threads and message.lower() == "echo on":
             self.threads.add(thread_id)
             return "Echo service is now on.\nSend 'echo off' to end it."
         if message.lower() == "echo off":
-            self.threads.remove(thread_id)
-            return "Echo service is now disabled"
-
+            if thread_id in self.threads:
+                self.threads.remove(thread_id)
+                return "Echo service is now disabled"
+            else:
+                return "Echo service was already disabled"
         if thread_id in self.threads and str(author_id) != str(owner_id):
             return message
